@@ -8,9 +8,17 @@ async function logowanie() {
     if(data.length === 0){
         document.getElementById('login-info').innerHTML = 'nie zalogowano'
     }else{
+        console.log(data[0].uprawnienia);
         document.getElementById('login-info').innerHTML = 'zalogowano'
-        localStorage.setItem('login', JSON.stringify(data[0]))
-        window.location.href = `./user.html`
+        if(data[0].uprawnienia === 'user'){
+            window.location.href = `./user.html`
+            localStorage.setItem('login', JSON.stringify(data[0]))
+            localStorage.setItem('perm', JSON.stringify(data[0].uprawnienia))
+        }else if(data[0].uprawnienia === 'admin'){
+            window.location.href = `./admin.html`
+            localStorage.setItem('login', JSON.stringify(data[0]))
+            localStorage.setItem('perm', JSON.stringify(data[0].uprawnienia))
+        }
     }
     
 }
