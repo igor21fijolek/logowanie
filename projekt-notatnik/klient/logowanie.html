@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logowanie</title>
+    <link rel="stylesheet" href="logowanie.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Logowanie</h2>
+        <div id="logowanie">
+            <input type="text" name="login" id="login" placeholder="Podaj swoja nazwę użytkownika" required>
+            <input type="password" name="haslo" id="haslo" placeholder="Podaj swoje hasło" required>
+            <p id="konto">Nie masz konta? <a href="rejestracja.html">Zarejestruj się</a></p>
+            <button onclick="logowanie()">Zaloguj się</button>
+            <p id="logowanie-info"></p>
+        </div>
+    </div>
+    <script src="logowanie.js"></script>
+</body>
+</html>

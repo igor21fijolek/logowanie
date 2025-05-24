@@ -14,16 +14,26 @@ let con =  mysql.createConnection({
     database:'notatnik'
 })
 
-app.get('/logowanie/:login/:haslo', (req,params)=>{
-    let login = req.params.login
-    let haslo = req.params.haslo
+app.get('/logowanie/:login/:haslo', (req, res) => {
+    let login = req.params.login;
+    let haslo = req.params.haslo;
 
-    let sql = `select * from uzytkownicy where login = '${login}'`
-    con.query(sql, (err,result)=>{
-        console.log(result);
-        res.send('zalogowano')
-    })
-})
+
+    let sql = `SELECT * FROM uzytkownicy WHERE login = '${login}' AND password = '${md5(haslo)}'`;
+    console.log(md5(haslo));
+    con.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+        }
+        if (result.length > 0) {
+            console.log('Zalogowano pomyślnie')
+            res.json('zalogowano');
+        } else {
+            console.log('Nieprawidłowy login lub hasło');
+            res.status(401).json({ error: 'Nieprawidłowy login lub hasło' });
+        }
+    });
+});
 
 app.get('/rejestracja/:login/:haslo', (req,res)=>{
     let login = req.params.login
@@ -42,7 +52,8 @@ app.get('/rejestracja/:login/:haslo', (req,res)=>{
             let sql = `insert into uzytkownicy values('${login}', '${md5(haslo)}', '${uprawnienia}')`
             con.query(sql, (err,result)=>{
                 console.log(result)
-                res.send('zarejestrowano')
+                res.status(200)
+                res.json('zarejestrowano')
             })
         }
     })
