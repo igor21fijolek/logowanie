@@ -4,6 +4,7 @@ async function logowanie() {
     let url = `http://localhost:3000/logowanie/${login}/${haslo}`
     let response = await fetch(url)
     let dane  = await response.json()
+    console.log(dane);
     if(dane.length === 0){
         document.getElementById('login-info').innerHTML = 'Nie zalogowano'
     }if(dane.length > 0){

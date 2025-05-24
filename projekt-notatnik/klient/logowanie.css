@@ -65,3 +65,9 @@ body {
     text-decoration: underline;
     color: #333333;
   }
+  #login-info {
+    color: #7f8c8d;  
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bolder;
+  }

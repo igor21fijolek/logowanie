@@ -17,23 +17,16 @@ let con =  mysql.createConnection({
 app.get('/logowanie/:login/:haslo', (req, res) => {
     let login = req.params.login;
     let haslo = req.params.haslo;
-
-
-    let sql = `SELECT * FROM uzytkownicy WHERE login = '${login}' AND password = '${md5(haslo)}'`;
-    console.log(md5(haslo));
+    let sql = `INSERT INTO uzytkownicy (login, password, uprawnienia) VALUES ('${login}', '${md5(haslo)}', '${uprawnienia}')`;
     con.query(sql, (err, result) => {
         if (err) {
-            console.error(err);
+            console.error(err)
         }
         if (result.length > 0) {
-            console.log('Zalogowano pomyślnie')
-            res.json('zalogowano');
-        } else {
-            console.log('Nieprawidłowy login lub hasło');
-            res.status(401).json({ error: 'Nieprawidłowy login lub hasło' });
+            res.json(result)
         }
-    });
-});
+})
+})
 
 app.get('/rejestracja/:login/:haslo', (req,res)=>{
     let login = req.params.login
