@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>user page</title>
+    <link rel="stylesheet" href="user.css">
+    <script src="user.js"></script>
 </head>
 <body>
-    <h1>user page</h1>
+    <h1>Własny Notatnik</h1>
+    <div id="container">
+        <div id="main">
+            <h3>Napisz notatke</h3>
+            <input type="text" id="notatka" placeholder="Tutaj wpisz swoją notatkę" required><br>
+            <button onclick="zapisz_notatke()">Zapisz notatke</button> <button onclick="pokaz_notatki()">pokaz notatki</button>
+        </div>
+    </div>
 </body>
 </html>
