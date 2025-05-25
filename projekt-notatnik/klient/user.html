@@ -5,16 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>user page</title>
     <link rel="stylesheet" href="user.css">
-    <script src="user.js"></script>
+    <script src="uprawnienia.js"></script>
 </head>
 <body>
     <h1>Własny Notatnik</h1>
     <div id="container">
-        <div id="main">
+        <div id="main-left">
             <h3>Napisz notatke</h3>
             <input type="text" id="notatka" placeholder="Tutaj wpisz swoją notatkę" required><br>
-            <button onclick="zapisz_notatke()">Zapisz notatke</button> <button onclick="pokaz_notatki()">pokaz notatki</button>
+            <button onclick="zapisz_notatke()" id="zapisz">Zapisz notatke</button> <button onclick="pokaz_notatki()" id="pokaz">Pokaz notatki</button>
         </div>
+        <div id="main-right">
+            <img src="notatnik.png" alt="notatnik" id="notatnik-img">
+        </div>
+        <img src="kolo.png" alt="ustawienia" id="kolo">
     </div>
+    <div  id="notatki">
+    </div>
+    <script src="user.js"></script>
+    <script src="wyloguj.js"></script>
 </body>
 </html>

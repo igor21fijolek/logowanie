@@ -1,4 +1,129 @@
-#notatka{
-    width:60%;
-    height: 30vh;
+body {
+    background: #f4f6fb;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2d3a4b;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+    padding: 40px 30px;
+}
+
+#main-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#main-left h3 {
+    margin-bottom: 10px;
+    color: #3b4d63;
+}
+
+#notatka {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    background: #f9fafb;
+    height: 10vh;
+}
+
+button {
+    padding: 10px 22px;
+    margin-right: 10px;
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+#main-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#notatnik-img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#kolo {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+#notatki{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center;
+}
+table{
+    width: 60%;
+    padding: 5px;
+    border-collapse: collapse;
+   
+}
+td{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #cfd8dc;
+    text-align: center;
+     border-radius: 20px;
+}
+#ustawienia{
+    position: absolute;
+    top: 35px;
+    right: 45px;
+    height: auto;
+    width: 18%;
+    background-color:#fff; ;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#ustawienia input{
+    width: 50%;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4f8cff;
+    padding: 5px;
+}
+#ustawienia input::placeholder{
+    color: #fff;
 }

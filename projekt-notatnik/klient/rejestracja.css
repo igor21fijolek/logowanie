@@ -3,6 +3,7 @@ body {
     color: #333333;   
     text-align: center;          
     background: linear-gradient(135deg, #f0f0f0, #dfe6e9);
+    font-family: 'Segoe UI', Arial, sans-serif;
   }
   
   #container {
@@ -53,4 +54,10 @@ body {
   }
   button:hover {
     background-color: #2980b9;  
+  }
+  #rejestracja-info{
+    margin-top: 20px;
+    color: #473f3e;  
+    font-size: 14px;
+    text-align: center;
   }

@@ -8,4 +8,4 @@ let permCheck = siteUrl.slice(
 console.log(JSONlocalStorage)
 if(JSONlocalStorage === null || JSONlocalStoragePerm != permCheck){
     window.location.href = `./logowanie.html`
-}
+} 

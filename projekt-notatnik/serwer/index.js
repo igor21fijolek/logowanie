@@ -17,7 +17,7 @@ let con =  mysql.createConnection({
 app.get('/logowanie/:login/:haslo', (req, res) => {
     let login = req.params.login;
     let haslo = req.params.haslo;
-    let sql = `INSERT INTO uzytkownicy (login, password, uprawnienia) VALUES ('${login}', '${md5(haslo)}', '${uprawnienia}')`;
+     let sql = `SELECT * FROM uzytkownicy WHERE login = '${login}' AND password = '${md5(haslo)}'`;
     con.query(sql, (err, result) => {
         if (err) {
             console.error(err)
@@ -52,6 +52,59 @@ app.get('/rejestracja/:login/:haslo', (req,res)=>{
     })
 })
 
+
+app.get('/dodaj-notatke/:tresc/:login', (req,res)=>{
+    let tresc = req.params.tresc
+    let login = req.params.login
+
+    let sql = `INSERT into notatki (tresc, login_uzytkownika) VALUES ('${tresc}', '${login}');`
+    con.query(sql, (err, result)=>{
+        if(err) throw err
+       res.status(200).json({ status: 200, message: 'dodano notatke' });
+    })
+})
+
+app.get('/pokaz-notatki/:login', (req, res) => {
+    let login  = req.params.login
+    let sql = `select * from notatki where login_uzytkownika = '${login}'`
+    con.query(sql, (err, result) => {
+        if (err) throw err
+        res.status(200).json(result)
+    })
+})
+
+app.get('/zmien-notatke/:id/:tresc', (req, res) => {
+    let id = req.params.id
+    let tresc = req.params.tresc
+
+    let sql = `UPDATE notatki SET tresc = '${tresc}' WHERE id_notatki = ${id}`
+    con.query(sql, (err, result) => {
+        if(err)throw err
+        res.send(result)
+    })
+})
+
+app.get('/zmien-login/:stary/:nowy', (req,res)=>{
+    let stary = req.params.stary
+    let nowy = req.params.nowy
+
+    let sql = `UPDATE uzytkownicy SET login = '${nowy}' WHERE login = '${stary}'`
+    con.query(sql, (err, result)=>{
+        if(err) throw err
+        res.send(result)
+    })
+})
+app.get('/zmien-haslo/:login/:stare/:nowe', (req, res) => {
+    let login = req.params.login
+    let stare = req.params.stare
+    let nowe = req.params.nowe
+
+    let sql = `UPDATE uzytkownicy SET password = '${md5(nowe)}' WHERE login = '${login}' AND password = '${md5(stare)}'`
+    con.query(sql, (err, result) => {
+        if(err) throw err
+        res.send(result)
+    })
+})
 
 con.connect((err)=>{
     if(err){
