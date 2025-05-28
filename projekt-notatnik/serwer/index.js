@@ -106,6 +106,27 @@ app.get('/zmien-haslo/:login/:stare/:nowe', (req, res) => {
     })
 })
 
+app.get("/usun-notatke/:id", (req,res)=>{
+    let id = req.params.id
+
+    let sql = `DELETE FROM notatki WHERE id_notatki = ${id}`
+    con.query(sql,(err,result)=>{
+        if(err) throw err
+        res.send(result)
+    })
+})
+
+app.get("/usun-uzytkownika/:login", (req,res)=>{
+    let login = req.params.login
+
+    let sql = `DELETE FROM uzytkownicy WHERE login = '${login}'`
+    con.query(sql,(err,result)=>{
+        if(err) throw err
+        res.send(result)
+    })
+})
+
+
 con.connect((err)=>{
     if(err){
         console.log("nie poloczono");

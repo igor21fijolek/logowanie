@@ -10,9 +10,29 @@
 <body>
     <h1>Własny Notatnik</h1>
     <div id="container">
-        
+        <div id="main-left">
+            <h2>Panel Admina</h2>
+            <h3>Usuń Uzytkownika</h3>
+            <input type="text"  id="login-usun" placeholder="Login do usunięcia">
+            <button onclick="usun_uzytkownika()">Usuń</button>
+            <h3>Pokaz notatki danego użytkownika</h3>
+            <input type="text"  id="login-notatki" placeholder="Login do sprawdzenia notatek">
+            <button onclick="pokaz_notatki_uzytkownika()">Pokaż</button>
+        </div>
+         <div id="main">
+            <h3>Napisz notatke</h3>
+            <input type="text" id="notatka" placeholder="Tutaj wpisz swoją notatkę" required><br>
+            <button onclick="zapisz_notatke()" id="zapisz">Zapisz notatke</button> <button onclick="pokaz_notatki()" id="pokaz">Pokaz notatki</button>
+        </div>
+        <div id="main-right">
+            <img src="notatnik.png" alt="notatnik" id="notatnik-img">
+        </div>
+        <img src="kolo.png" alt="ustawienia" id="kolo">
+    </div>
+    <div  id="notatki">
+    </div>
     </div>
     <script src="admin.js"></script>
-    <script src="wyloguj.js"></script>
+    <script src="wyloguj-admin.js"></script>
 </body>
 </html>
