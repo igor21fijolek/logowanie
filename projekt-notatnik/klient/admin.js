@@ -164,7 +164,7 @@ async function pokaz_notatki_uzytkownika() {
         return
     }
     let table = document.createElement("table")
-    table.innerHTML = `<h3>Twoje notatki</h3>
+    table.innerHTML = `<h3>Notatki uzytkownika ${login}</h3>
      <table>
                 <tr>
                     <td>

@@ -8,7 +8,8 @@
     <script src="uprawnienia.js"></script>
 </head>
 <body>
-    <h1>Własny Notatnik</h1>
+    <h1>LinkPoint</h1>
+    <h4>Własny Notatnik</h4>
     <div id="container">
         <div id="main-left">
             <h2>Panel Admina</h2>
@@ -16,8 +17,10 @@
             <input type="text"  id="login-usun" placeholder="Login do usunięcia">
             <button onclick="usun_uzytkownika()">Usuń</button>
             <h3>Pokaz notatki danego użytkownika</h3>
-            <input type="text"  id="login-notatki" placeholder="Login do sprawdzenia notatek">
-            <button onclick="pokaz_notatki_uzytkownika()">Pokaż</button>
+            <input type="text"  id="login-limit" placeholder="Podaj login uzytkownika"><br>
+            <input type="number" id="limit" placeholder="podaj limit notatek"><br>
+            
+            <button onclick="zwieksz_limit()">Pokaż</button>
         </div>
          <div id="main">
             <h3>Napisz notatke</h3>
